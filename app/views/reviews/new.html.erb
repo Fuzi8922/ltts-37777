@@ -1,0 +1,19 @@
+<div class="container">
+  <h4>レビュー投稿</h4>
+    <div class = "content">
+    <%= form_with(model: @review, local: true) do |f| %>
+      <%= f.text_area :item, placeholder: "Item", class: "item" %>
+      <label>
+      <div class="image-form">
+        Please attach an image
+        <%= f.file_field :image, placeholder: "Image Url", class: "image" %>
+      </div>
+      </label>
+      <%= f.text_area :review_text, placeholder: "Write review", class: "review" %>
+      <%= f.text_area :price_range_id, placeholder: "Price", class: "price" %>
+      <%= f.text_area :category_id, placeholder: "カテゴリー仮置き", class: "category" %>
+      <%= f.text_area :evaluation_id, placeholder: "星評価仮置き", class: "evaluation" %>
+      <%= f.submit "Post review", class: "send" %>
+    <% end %>
+    </div>
+</div>
