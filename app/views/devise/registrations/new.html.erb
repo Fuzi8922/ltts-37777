@@ -1,15 +1,20 @@
-<h2>Sign up</h2>
+<h2>SIGN UP</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :Nickname %><br />
+    <%= f.text_field :nickname %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :Email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :Password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -17,12 +22,29 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :Password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class='field'>
+    <%= f.label :Birthday %>
+  </div>
+  <div class='input-birth-wrap'>
+    <%= raw sprintf(
+      f.date_select(
+        :birthday,
+        class:'select-birth',
+        id:"birth-date",
+        use_month_numbers: true,
+        prompt:'--',
+        start_year: 1930,
+        end_year: (Time.now.year - 5),
+        date_separator: '%s'),
+      "<p> Year </p>", "<p> Month </p>") + "<p> Day </p>" %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "SIGN UP" %>
   </div>
 <% end %>
 
