@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
 
   has_many :comments
+  has_many :goods
   belongs_to :user
   has_one_attached :image
 

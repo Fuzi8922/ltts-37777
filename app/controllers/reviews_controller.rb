@@ -22,6 +22,7 @@ class ReviewsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @review.comments.includes(:user)
+    @good = Good.new
   end
 
   def edit
