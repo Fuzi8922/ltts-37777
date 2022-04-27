@@ -1,5 +1,21 @@
 <%= render "shared/header" %>
 
-
-
+<body>
+  <div class = "reviews">
+    <% @reviews.each do |review| %>
+    <div class = "review">
+      <%= link_to review_path(review) do %>
+        <%= image_tag review.image, class: "tweet-image" %>
+        <div class = tweet-bottom>
+          <div class = "tweet-preview">
+            <p>商品名：<%= review.item %></p>
+            <p>価格帯：<%= review.price_range.name %></p>
+            <p>評価：<%= review.evaluation.name %></p>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</body>
 
