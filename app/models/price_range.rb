@@ -9,7 +9,10 @@ class PriceRange < ActiveHash::Base
     { id: 6, name: '¥30,000〜¥50,000' },
     { id: 7, name: '¥50,000〜¥100,000' },
     { id: 8, name: '¥100,000〜¥300,000' },
-    { id: 7, name: '¥300,000〜' }
+    { id: 9, name: '¥300,000〜' }
   ]
+
+  include ActiveHash::Associations
+  has_many :reviews
   
-  end
+end

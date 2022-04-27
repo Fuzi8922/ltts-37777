@@ -9,5 +9,8 @@ class Category < ActiveHash::Base
     { id: 6, name: 'アクセサリ' },
     { id: 7, name: 'その他' }
   ]
-  
-  end
+
+  include ActiveHash::Associations
+  has_many :reviews
+
+end
