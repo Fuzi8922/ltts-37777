@@ -10,9 +10,12 @@
       </div>
       </label>
       <%= f.text_area :review_text, placeholder: "Write review", class: "review" %>
-      <%= f.text_area :price_range_id, placeholder: "Price", class: "price" %>
-      <%= f.text_area :category_id, placeholder: "カテゴリー仮置き", class: "category" %>
-      <%= f.text_area :evaluation_id, placeholder: "星評価仮置き", class: "evaluation" %>
+      Price
+      <%= f.collection_select(:price_range_id, PriceRange.all, :id, :name, {}, {class:"select-box", id:"price"}) %>
+      Category
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
+      Evaluation
+      <%= f.collection_select(:evaluation_id, Evaluation.all, :id, :name, {}, {class:"select-box", id:"evaluation"}) %>
       <%= f.submit "Post review", class: "send" %>
     <% end %>
     </div>
