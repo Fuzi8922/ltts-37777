@@ -8,4 +8,17 @@
 <% if user_signed_in? && (@review.user_id == current_user.id) %>
   <%= link_to "Edit review", edit_review_path, method: :get, class: "review-edit" %>
   <%= link_to "Delete review", review_path, method: :delete, class: "review-destroy" %>
+<% elsif user_signed_in? %>
+  <%= form_with(model: [@review, @comment], url: review_comments_path(@review), local: true, class: "comment-form", method: :post) do |f| %>
+    <%= f.text_field :comment_text, placeholder: "コメントする", class: "comment-text-form" %>
+    <%= f.submit "コメントする", class: "comment-btn" %>
+  <% end %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <%= comment.user.nickname %>
+  <%= comment.comment_text %>
+  <% if user_signed_in? && (current_user.id == comment.user_id) %>
+      <%= link_to "コメントを削除する", review_comment_path(@review, comment), method: :delete, class: "comment-destroy" %>
+  <% end %>
 <% end %>
