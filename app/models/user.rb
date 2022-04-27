@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :comments
+  has_many :goods
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
