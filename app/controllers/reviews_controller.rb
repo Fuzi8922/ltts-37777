@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+  before_action :identify_review, only:[:show, :edit, :update, :destroy]
+
   def index
     @reviews = Review.includes(:user).order('created_at DESC')
   end
@@ -17,11 +19,34 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @review.update(review_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @review.destroy
+    redirect_to root_path
+  end
+
   private
 
   def review_params
     params.require(:review).permit(:item, :review_text, :price_range_id, :category_id, :evaluation_id, :user_id, :image).merge(
       user_id: current_user.id)
+  end
+
+  def identify_review
+    @review = Review.find(params[:id])
   end
 
 end

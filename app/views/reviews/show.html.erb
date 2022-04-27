@@ -1,0 +1,11 @@
+<%= image_tag @review.image %>
+<%= @review.item %>
+<%= @review.review_text %>
+<%= @review.price_range.name %>
+<%= @review.category.name %>
+<%= @review.evaluation.name %>
+
+<% if user_signed_in? && (@review.user_id == current_user.id) %>
+  <%= link_to "Edit review", edit_review_path, method: :get, class: "review-edit" %>
+  <%= link_to "Delete review", review_path, method: :delete, class: "review-destroy" %>
+<% end %>
