@@ -1,0 +1,23 @@
+<div class="container">
+  <h4>レビュー編集</h4>
+    <div class = "content">
+    <%= image_tag @review.image  %>
+    <%= form_with(model: @review, local: true) do |f| %>
+      <%= f.text_area :item, placeholder: "Item", class: "item" %>
+      <label>
+      <div class="image-form">
+        Please attach an image
+        <%= f.file_field :image, placeholder: "Image Url", class: "image" %>
+      </div>
+      </label>
+      <%= f.text_area :review_text, placeholder: "Write review", class: "review" %>
+      Price
+      <%= f.collection_select(:price_range_id, PriceRange.all, :id, :name, {}, {class:"select-box", id:"price"}) %>
+      Category
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
+      Evaluation
+      <%= f.collection_select(:evaluation_id, Evaluation.all, :id, :name, {}, {class:"select-box", id:"evaluation"}) %>
+      <%= f.submit "編集を確定する", class: "send" %>
+    <% end %>
+    </div>
+</div>
