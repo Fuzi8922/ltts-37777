@@ -18,6 +18,7 @@ header {
 }
 
 .header-left{
+  align-items: center;
   height: 100px;
   width: 25vw;
   color: white;
@@ -63,7 +64,12 @@ h1{
 }
 
 .contents-title{
+  text-align: center;
   height: 100px;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
 }
 
 .top-content{
@@ -144,6 +150,15 @@ h1{
 .bottom-content{
   height:700px;
   padding:0px 40px;
+}
+
+.bottom-text{
+  text-align: center;
+  height: 100px;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
 }
 
 footer{
