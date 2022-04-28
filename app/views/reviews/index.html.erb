@@ -1,21 +1,44 @@
-<%= render "shared/header" %>
-
 <body>
-  <div class = "reviews">
-    <% @reviews.each do |review| %>
-    <div class = "review">
-      <%= link_to review_path(review) do %>
-        <%= image_tag review.image, class: "tweet-image" %>
-        <div class = tweet-bottom>
-          <div class = "tweet-preview">
-            <p>商品名：<%= review.item %></p>
-            <p>価格帯：<%= review.price_range.name %></p>
-            <p>評価：<%= review.evaluation.name %></p>
-          </div>
-        </div>
-      <% end %>
-      </div>
-    <% end %>
+  <%= render "shared/header" %>
+  <div class = "wrapper">
   </div>
+  <div class = "main-contents">
+    <div class = "contents-title">
+    </div>
+    <div class = top-content>
+      <div class = "left-content">
+        <div class = "left-title">
+        </div>
+      </div>
+      <div class = right-content>
+        <div class = "right-title">
+        </div>
+        <div class = "reviews">
+          <% @reviews.each do |review| %>
+          <div class = "review">
+            <%= link_to review_path(review) do %>
+              <%= image_tag review.image, class: "review-image" %>
+              <div class = review-bottom>
+                <div class = "review-preview">
+                  <p>商品名：<%= review.item %></p>
+                  <p>価格帯：<%= review.price_range.name %></p>
+                  <p>評価：<%= review.evaluation.name %></p>
+                </div>
+              </div>
+            <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-content">
+      <div class = "bottom-text">
+      </div>
+      <div class = "bottom-attention">
+      </div>
+    </div>
+  </div>
+  <footer>
+  </footer>
 </body>
 
