@@ -3,13 +3,13 @@
     <div class = "content">
     <%= form_with(model: @review, local: true, id: "new_review") do |f| %>
       <%= f.text_area :item, placeholder: "Item", class: "item" %>
-      <label>
       <div class="image-form">
         Please attach an image
         <div id="previews"></div>
-        <%= f.file_field :image, placeholder: "Image Url", class: "image" %>
+        <div class="click-upload">
+          <%= f.file_field :images, name: 'review[images][]', class: "image", data: {index: 0} %>
+        </div>
       </div>
-      </label>
       <%= f.text_area :review_text, placeholder: "Write review", class: "review" %>
       Price
       <%= f.collection_select(:price_range_id, PriceRange.all, :id, :name, {}, {class:"select-box", id:"price"}) %>
