@@ -20,7 +20,13 @@
           <% @reviews.each do |review| %>
           <div class = "review">
             <%= link_to review_path(review) do %>
-              <%= image_tag review.image, class: "review-image" %>
+              <div class="other-images">
+                <% review.images.each do |image| %>
+                  <div class="other-image">
+                    <%= image_tag image %>
+                  </div>
+                <%end%>
+              </div>
               <div class = review-bottom>
                 <div class = "review-preview">
                   <p>商品名：<%= review.item %></p>

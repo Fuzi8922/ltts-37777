@@ -1,4 +1,8 @@
-<%= image_tag @review.image %>
+<% @review.images.each do |image| %>
+  <div class="other-image">
+    <%= image_tag image %>
+  </div>
+<%end%>
 <%= @review.item %>
 <%= @review.review_text %>
 <%= @review.price_range.name %>

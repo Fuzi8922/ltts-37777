@@ -125,11 +125,18 @@ h1{
   width: 400px;
 }
 
-.review-image{
-  max-height: 330px;
-  min-height: 330px;
-  min-width: 320px;
+.other-images{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 320px;
+}
+
+img{
   object-fit:cover;
+  max-height: 160px;
+  min-height: 160px;
+  min-width: 160px;
 }
 
 .review-bottom{
@@ -166,4 +173,17 @@ footer{
   width: 100vw;
   height:200px;
   background-color: gold;
+}
+
+.preview-image{
+  width: 200px;
+  height: 200px;
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  width: 20vw;
 }
