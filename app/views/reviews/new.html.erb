@@ -1,11 +1,12 @@
 <div class="container">
   <h4>レビュー投稿</h4>
     <div class = "content">
-    <%= form_with(model: @review, local: true) do |f| %>
+    <%= form_with(model: @review, local: true, id: "new_review") do |f| %>
       <%= f.text_area :item, placeholder: "Item", class: "item" %>
       <label>
       <div class="image-form">
         Please attach an image
+        <div id="previews"></div>
         <%= f.file_field :image, placeholder: "Image Url", class: "image" %>
       </div>
       </label>
