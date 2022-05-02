@@ -3,7 +3,7 @@ class Review < ApplicationRecord
   has_many :comments
   has_many :goods
   belongs_to :user
-  has_one_attached :image
+  has_many_attached :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -15,7 +15,7 @@ class Review < ApplicationRecord
 
   with_options presence: true do
     validates :item
-    validates :image
+    validates :images
     validates :review_text
     validates :price_range_id
     validates :category_id
