@@ -22,6 +22,7 @@ class ReviewsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @review.comments.includes(:user)
+    @user = User.find(params[:id])
     @good = Good.new
     @bookmark = Bookmark.new
   end

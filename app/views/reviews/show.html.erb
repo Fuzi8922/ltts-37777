@@ -8,6 +8,7 @@
 <%= @review.price_range.name %>
 <%= @review.category.name %>
 <%= @review.evaluation.name %>
+<%= link_to @user.nickname, user_path(@user) %>
 
 <% if user_signed_in? && (@review.user_id == current_user.id) %>
   <%= link_to "Edit review", edit_review_path, method: :get, class: "review-edit" %>
