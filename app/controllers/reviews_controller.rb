@@ -23,6 +23,7 @@ class ReviewsController < ApplicationController
     @comment = Comment.new
     @comments = @review.comments.includes(:user)
     @good = Good.new
+    @bookmark = Bookmark.new
   end
 
   def edit
