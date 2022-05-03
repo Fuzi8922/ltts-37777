@@ -1,0 +1,16 @@
+<%= render "shared/header" %>
+
+<div class = "mypage">
+  <div class="user-profile">
+    <% if @user.image.present? %>
+      <%= image_tag @user.image %>
+    <% else %>
+      <%= "アイコンなし" %>
+    <% end %>
+    <h2>ユーザーネーム：<%= @user.nickname %></h2>
+    紹介文
+    <div class = "profile-text">
+    <%= @user.profile_text %>
+  </div>
+  <%= link_to "編集する", edit_user_registration_path %>
+</div>
