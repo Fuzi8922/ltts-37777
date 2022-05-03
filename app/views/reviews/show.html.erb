@@ -20,9 +20,14 @@
 <% end %>
 
 good数: <%= @review.goods.count %>
-<% if current_user.id != @good.user_id %>
+<% if current_user.id != @review.user_id %>
   <%= button_to 'Good', review_goods_path(@review) %>
   <%= button_to 'Goodを取り消す', review_good_path(@review), method: :delete %>
+<% end %>
+
+<% if current_user.id != @review.user_id %>
+  <%= button_to 'ブックマークに追加', review_bookmarks_path(@review) %>
+  <%= button_to 'ブックマークを外す', review_bookmark_path(@review), method: :delete %>
 <% end %>
 
 <% @comments.each do |comment| %>
