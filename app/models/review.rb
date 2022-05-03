@@ -2,6 +2,7 @@ class Review < ApplicationRecord
 
   has_many :comments
   has_many :goods
+  has_many :bookmarks
   belongs_to :user
   has_many_attached :images
 
