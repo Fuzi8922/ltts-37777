@@ -3,7 +3,9 @@ class ReviewsController < ApplicationController
   before_action :identify_review, only:[:show, :edit, :update, :destroy]
 
   def index
-    @reviews = Review.includes(:user).order('created_at DESC')
+    @reviews = Review.includes(:user).order("created_at DESC")
+    @random_review = Review.where("id >= ?", rand(Review.first.id..Review.last.id)).first
+    goods = Good.includes(:user)
   end
 
   def new
@@ -22,7 +24,7 @@ class ReviewsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @review.comments.includes(:user)
-    @user = User.find(params[:id])
+    @user = @review.user
     @good = Good.new
     @bookmark = Bookmark.new
   end

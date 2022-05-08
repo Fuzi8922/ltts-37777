@@ -3,6 +3,10 @@ a{
 }
 
 header {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
   height:100px;
   width: 100vw;
   background-color: lightblue;
@@ -18,12 +22,15 @@ header {
 }
 
 .header-left{
-  align-items: center;
   height: 100px;
   width: 25vw;
+  margin-left: 50px;
+}
+
+.header-left a{
+  align-items: center;
+  font-size: 60px;
   color: white;
-  font-size: 70px;
-  margin:0px 30px;
 }
 
 .header-center{
@@ -40,7 +47,9 @@ header {
 }
 
 .wrapper{
-  display:block;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   height:900px;
   width:100vw;
   background-image: url(https://nanamiyuki.com/wp-content/uploads/2021/01/ss-scaled.jpg);
@@ -48,11 +57,11 @@ header {
 }
 
 h1{
-  text-align: center;
-  font-size: 50px;
-  color: white;
-  font-family: 'Oswald', sans-serif;
-  padding-bottom: 90px;
+  font-size: 130px;
+  font-family: 'Grape Nuts', cursive;
+  background: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .main-contents{
@@ -70,6 +79,7 @@ h1{
   font-size: 50px;
   font-weight: bold;
   font-family: 'Oswald', sans-serif;
+  margin: 50px 0px;
 }
 
 .top-content{
@@ -78,8 +88,9 @@ h1{
 }
 
 .left-content{
-  display: block;
-  width: 600px;
+  display: flex;
+  flex-direction: column;
+  width: 580px;
 }
 
 .left-title{
@@ -91,9 +102,72 @@ h1{
   font-family: 'Oswald', sans-serif;
 }
 
+.timeline{
+  text-align: center;
+  opacity: 0.9;
+}
+
+.random{
+  height: 510px;
+  width: 570px;
+  margin-top: 30px;
+  box-shadow: 0px 30px 30px 0px rgba(3, 3, 3, 0.1);
+  border-radius: 50px;
+  color: white;
+  background-image: linear-gradient(to bottom, #3ab5b0 0%, #3d99be 31%, #56317a 100%);
+  overflow: hidden;
+}
+
+.random-title{
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 30px;
+}
+
+.random-images{
+  display: flex;
+  overflow: hidden;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+.random-image{
+  max-height: 135px;
+  min-height: 135px;
+  max-width: 135px;
+  min-width: 135px;
+  object-fit:cover;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.random-review-bottom{
+  display: flex;
+}
+
+.random-review-preview{
+  flex-direction: column;
+  font-size: 18px;
+  margin: 20px 30px 0px;
+  color: lavender;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.reviewer{
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.reviewer a{
+  color: lavender;
+}
+
 .right-content{
   display: block;
-  width:calc(100vw - 600px - 80px);
+  width:calc(100vw - 580px - 80px);
 }
 
 .right-title{
@@ -103,6 +177,7 @@ h1{
   font-size: 40px;
   font-weight: bold;
   font-family: 'Oswald', sans-serif;
+  border-bottom: solid 2px darkslategrey;
 }
 
 .reviews{
@@ -112,41 +187,47 @@ h1{
   overflow: hidden;
   overflow: scroll;
   height: 1200px;
+  box-shadow: 0px 30px 30px 0px rgba(3, 3, 3, 0.1);
+  border-radius: 50px;
 }
 
 .review{
-  height:400px;
-  width:320px;
+  height:390px;
+  width:310px;
   background-image: linear-gradient(45deg, #9890e3 0%, #b1f4cf 100%);
+  margin: 25px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .reviews::after{
   content:"";
-  width: 400px;
+  width: 360px;
 }
 
 .other-images{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 320px;
+  height: 310px;
 }
 
 img{
   object-fit:cover;
-  max-height: 160px;
-  min-height: 160px;
-  min-width: 160px;
+  max-height: 155px;
+  min-height: 155px;
+  min-width: 155px;
+  max-width: 155px;
 }
 
 .review-bottom{
   display: flex;
+  margin-top: 3px;
 }
 
 .review-preview{
   flex-direction: column;
   height: 30px;
-  max-width: 320px;
   list-style: none;
   color: lavender;
   font-size: 16px;
@@ -154,26 +235,86 @@ img{
   font-family: 'Zen Kaku Gothic New', sans-serif;
 }
 
+.review-preview p{
+  max-height: 24px;
+  width: 260px;
+  overflow: hidden;
+}
+
+.good{
+  display: flex;
+  width: calc(310px - 260px);
+  color: lavender;
+  margin: 50px 5px 0px 0px;
+  justify-content: right;
+}
+
+.good a{
+  color: lavender;
+  margin-right: 5px;
+}
+
 .bottom-content{
   height:700px;
   padding:0px 40px;
 }
 
+h2{
+  text-align: center;
+  font-size: 80px;
+  font-family: 'Fredericka the Great', cursive;
+  color: lavender;
+}
+
 .bottom-text{
   text-align: center;
   height: 100px;
-  color: white;
-  font-size: 50px;
-  font-weight: bold;
-  font-family: 'Oswald', sans-serif;
+  color: lavender;
+  font-size: 20px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  margin-top: 100px;
 }
 
 footer{
   position: sticky;
+  display: flex;
+  height: 600px;
   width: 100vw;
-  height:200px;
-  background-color: gold;
+  font-size: 18px;
+  padding-top: 50px;
+  background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
+  color: lavender;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
 }
+
+footer a{
+  color: white;
+}
+
+.genre{
+  width: 33vw;
+  margin-left: 200px;
+}
+
+.about, .manufacturer{
+  width: 33vw;
+}
+
+.about p{
+  font-size: 12px;
+}
+
+.index{
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.item{
+  margin: 10px 0px;
+}
+
+/* 以下review/new部分 */
 
 .preview-image{
   width: 200px;
