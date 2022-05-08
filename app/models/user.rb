@@ -19,4 +19,8 @@ class User < ApplicationRecord
     validates :birthday
   end
 
+  def good_by?(review_id)
+    goods.where(review_id: review_id).exists?
+  end
+
 end
