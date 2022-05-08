@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :reviews do
     resources :comments,  only: [:create, :destroy]
-    resources :goods,     only: [:create, :destroy]
+    resource  :goods,     only: [:create, :destroy]
     resources :bookmarks, only: [:create, :destroy]
   end
 
