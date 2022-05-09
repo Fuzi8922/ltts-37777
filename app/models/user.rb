@@ -23,4 +23,8 @@ class User < ApplicationRecord
     goods.where(review_id: review_id).exists?
   end
 
+  def bookmark_by?(review_id)
+    bookmarks.where(review_id: review_id).exists?
+  end
+
 end
