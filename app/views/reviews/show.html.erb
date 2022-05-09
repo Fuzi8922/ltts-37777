@@ -1,40 +1,111 @@
-<% @review.images.each do |image| %>
-  <div class="other-image">
-    <%= image_tag image %>
+<body>
+  
+  <%= render "shared/header" %>
+
+  <div class = "review-show">
+    <div class = "show-title">
+      <% if user_signed_in? && @review.user_id == current_user.id %>
+        <p> YOUR REVIEW </p>
+      <% else %>
+        <%= "REVIEW" %>
+      <% end %>
+    </div>
+    <div class = "show-top">
+      <div class = "show-form">
+        <ul>
+          <li>製品名：<%= @review.item %></li>
+          <li>価格帯：<%= @review.price_range.name %></li>
+          <li>カテゴリ：<%= @review.category.name %></li>
+          <li><%= @review.evaluation.name %></li>
+        </ul>
+        <div class = "favorite">
+          <div class = "show-bookmark">
+            <% if user_signed_in? && (current_user.id != @review.user_id) %>
+              <% if current_user.bookmark_by?(@review.id) %>
+                <%= link_to "REMOVE BOOKMARK", review_bookmark_path(@review), method: :delete %>
+              <% else %>
+                <%= link_to "ADD BOOKMARK", review_bookmarks_path(@review), method: :post %>
+              <% end %>
+            <% elsif user_signed_in? %>
+            <% else %>
+              <%= link_to "SIGN IN", new_user_session_path %>
+              <p>※ブックマーク機能を利用するにはサインインが必要です。</p>
+            <% end %>
+          </div>
+          <div class = "show-good">
+            <% if user_signed_in? && current_user.good_by?(@review.id) %>
+              <%= link_to "❤️", review_goods_path(@review), method: :delete %>
+            <% else %>
+              <%= link_to "♡", review_goods_path(@review), method: :post %>
+            <% end %>
+            <%= @review.goods.count %>
+          </div>
+        </div>
+        <div class = "show-edit">
+          <% if user_signed_in? && (@review.user_id == current_user.id) %>
+            <%= link_to "EDIT REVIEW", edit_review_path, method: :get, class: "review-edit" %>
+            <%= link_to "DELETE REVIEW", review_path, method: :delete, class: "review-destroy" %>
+          <% end %>
+        </div>
+      </div>
+      <div class = "show-images">
+        <% @review.images.each do |image| %>
+          <%= image_tag image %>
+        <% end %>
+      </div>
+    </div>
+    <div class = "show-middle">
+      <div class = "user-name">
+        レビュアー：<%= link_to @user.nickname, user_path(@user) %>
+      </div>
+      <div class = review-text>
+        <%= @review.review_text %>
+      </div>
+    </div>
   </div>
-<%end%>
-<%= @review.item %>
-<%= @review.review_text %>
-<%= @review.price_range.name %>
-<%= @review.category.name %>
-<%= @review.evaluation.name %>
-<%= link_to @user.nickname, user_path(@user) %>
 
-<% if user_signed_in? && (@review.user_id == current_user.id) %>
-  <%= link_to "Edit review", edit_review_path, method: :get, class: "review-edit" %>
-  <%= link_to "Delete review", review_path, method: :delete, class: "review-destroy" %>
-<% elsif user_signed_in? %>
-  <%= form_with(model: [@review, @comment], url: review_comments_path(@review), local: true, class: "comment-form", method: :post) do |f| %>
-    <%= f.text_field :comment_text, placeholder: "コメントする", class: "comment-text-form" %>
-    <%= f.submit "コメントする", class: "comment-btn" %>
-  <% end %>
-<% end %>
+  <div class = "show-bottom">
+    <div class = "show-bottom-title">
+      <p>COMMENT</p>
+    </div>
+    <div class = "comment-form">
+      <% if user_signed_in? %>
+        <%= form_with(model: [@review, @comment], url: review_comments_path(@review), local: true, method: :post) do |f| %>
+          <%= f.text_area :comment_text, placeholder: "INPUT COMMENT", class: "comment-text-form" %>
+          <div class = "button">
+            <%= f.submit "SUBMIT", class: "submit-btn" %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>コメントを投稿するにはサインインが必要です。</p>
+      <% end %>
+    </div>
 
-good数: <%= @review.goods.count %>
-<% if current_user.id != @review.user_id %>
-  <%= button_to 'Good', review_goods_path(@review) %>
-  <%= button_to 'Goodを取り消す', review_good_path(@review), method: :delete %>
-<% end %>
+    <div class = "show-bottom-title">
+      <p>COMMENT LIST</p>
+    </div>
+    <div class = "comment-list">
+      <div class = "comment">
+        <% if @comments.present? %>
+          <% @comments.each do |comment| %>
+            <% if comment.user.image.present? %>
+              <%= image_tag comment.user.image %>
+            <% end %>
+            <%= link_to comment.user.nickname, user_path(@user), class: "comment-user" %>
+            <%= comment.comment_text %>
+            <div class = "comment-destroy">
+              <% if user_signed_in? && (current_user.id == comment.user_id) %>
+                <%= link_to "DELETE COMMENT", review_comment_path(@review, comment), method: :delete %>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <p>このレビューのコメントはありません。</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<% if current_user.id != @review.user_id %>
-  <%= button_to 'ブックマークに追加', review_bookmarks_path(@review) %>
-  <%= button_to 'ブックマークを外す', review_bookmark_path(@review), method: :delete %>
-<% end %>
+  <%= render "shared/footer" %>
 
-<% @comments.each do |comment| %>
-  <%= comment.user.nickname %>
-  <%= comment.comment_text %>
-  <% if user_signed_in? && (current_user.id == comment.user_id) %>
-      <%= link_to "コメントを削除する", review_comment_path(@review, comment), method: :delete, class: "comment-destroy" %>
-  <% end %>
-<% end %>
+</body>

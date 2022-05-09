@@ -9,7 +9,7 @@ header {
   left: 0;
   height:100px;
   width: 100vw;
-  background-color: lightblue;
+  background: rgba(119, 206, 221, 0.5);
 }
 
 .header-contents{
@@ -135,7 +135,7 @@ h1{
   justify-content: space-around;
 }
 
-.random-image{
+.random img{
   max-height: 135px;
   min-height: 135px;
   max-width: 135px;
@@ -213,7 +213,7 @@ h1{
   height: 310px;
 }
 
-img{
+.review img{
   object-fit:cover;
   max-height: 155px;
   min-height: 155px;
@@ -329,3 +329,293 @@ footer a{
   margin-bottom: 5px;
   width: 20vw;
 }
+
+/* 以下review/show部分 */
+
+.review-show{
+  height: 1800px;
+  width: 100vw;
+  background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
+}
+
+.review-show input{
+	background: none;
+	border: none;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.show-title{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  height: 270px;
+  width: 100vw
+}
+
+.show-top{
+  display: flex;
+  height: 900px;
+  padding: 50px 0px;
+  margin: 0px 50px;
+}
+
+.show-form{
+  flex-direction: column;
+  min-width: 650px;
+  max-width: 650px;
+}
+
+.show-form li{
+  flex-wrap: wrap;
+  color: lavender;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  list-style: none;
+  margin: 30px 15px;
+}
+
+.favorite{
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  font-family: 'Oswald', sans-serif;
+}
+
+.show-bookmark, .review-edit, .review-destroy{
+  -webkit-transform: skew(-15deg);
+  transform: skew(-15deg);
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#2af598), to(#009efd));
+  background-image: -webkit-linear-gradient(left, #2af598 0%, #009efd 100%);
+  background-image: linear-gradient(90deg, #2af598 0%, #009efd 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, .1);
+  margin-right: 25px;
+}
+
+.show-bookmark a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 270px;
+  color: lavender;
+}
+
+.show-bookmark p{
+  font-size: 10px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  color: royalblue;
+}
+
+.show-good{
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  height: 60px;
+  font-size: 30px;
+  font-weight: bold;
+  color: lavender;
+  margin-right: 50px;
+}
+
+.show-good a{
+  color: lavender;
+  margin-right: 5px;
+}
+
+.show-edit{
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  font-family: 'Oswald', sans-serif;
+  margin-top: 30px;
+}
+
+.review-edit, .review-destroy{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 270px;
+  color: lavender;
+}
+
+.show-images{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-right: 100px;
+}
+
+.show-images img{
+  margin: 30px 60px;
+  width: 350px;
+  height: 350px;
+  border: solid 1px darkslategrey;
+  box-shadow: 20px 20px 0px rgb(88, 91, 92);
+  border-radius: 10px;
+}
+
+.show-middle{
+  min-height: 500px;
+  width: 80vw;
+  color: lavender;
+  box-shadow: 0px 30px 30px 0px rgba(3, 3, 3, 0.1);
+  border-radius: 50px;
+  margin: 0px 10vw;
+}
+
+.user-name{
+  font-size: 30px;
+  color: lavender;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  margin: 20px;
+  border-bottom: solid 1px white;
+}
+
+.user-name a{
+  vertical-align: top;
+  color: lavender;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.review-text{
+  flex-wrap: wrap;
+  font-size: 25px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  margin: 20px;
+}
+
+.show-bottom{
+  min-height: 1000px;
+  width: 100vw;
+  background-image: linear-gradient(to top, #30cfd0 50%, #330867 100%);
+  color: lavender;
+  padding-bottom: 100px;
+}
+
+.show-bottom-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  height: 100px;
+  margin-bottom: 30px;
+}
+
+.comment-form{
+  display: flex;
+  justify-content: center;
+}
+
+.show-bottom form{
+  display: flex;
+  flex-direction: column;
+  text-align: top;
+  width: 60vw;
+}
+
+.show-bottom input, .show-bottom textarea{
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.comment-text-form{
+  height: 350px;
+  margin: 30px;
+  box-shadow: 10px 10px 0px rgb(8, 122, 160);
+  flex-wrap: wrap;
+}
+
+.comment-text-form::placeholder{
+  opacity: 0.6;
+}
+
+.button{
+  display: flex;
+  justify-content: right;
+  margin-right: 30px;
+}
+
+.submit-btn{
+  height: 70px;
+  width: 300px;
+  color: #009efd;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  box-shadow: 10px 10px 0px rgb(8, 122, 160);
+}
+
+.comment-list{
+  display: flex;
+  justify-content: center;
+  min-height: 300px;
+  width: 70vw;
+  box-shadow: 0px 30px 30px 0px rgba(3, 3, 3, 0.1);
+  border-radius: 50px;
+  overflow: hidden;
+  overflow: scroll;
+  padding-bottom: 350px;
+  margin: 30px 15vw 0px;
+}
+
+.comment{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: left;
+  font-size: 22px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  margin: 0px 100px 15px;
+  width:100%;
+}
+
+.comment img{
+  min-height: 100px;
+  max-height: 100px;
+  min-width: 100px;
+  max-width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 50px;
+}
+
+.comment a{
+  color: lavender;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.comment-destroy a{
+  font-size: 18px;
+  color: #3584A7;
+}
+
+
+
+
+
+
+
+
+
+
+
