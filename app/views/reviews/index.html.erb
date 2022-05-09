@@ -65,7 +65,7 @@
                     <p>評価：<%= review.evaluation.name %></p>
                   </div>
                   <div class = "good">
-                    <% if current_user.good_by?(review.id) %>
+                    <% if user_signed_in? && current_user.good_by?(review.id) %>
                       <%= link_to "❤️", review_goods_path(review), method: :delete %>
                     <% else %>
                       <%= link_to "♡", review_goods_path(review), method: :post %>
