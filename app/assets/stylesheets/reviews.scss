@@ -496,9 +496,12 @@ footer a{
 
 .review-text{
   flex-wrap: wrap;
+  overflow: hidden;
+  overflow: scroll;
+  max-height: 500px;
   font-size: 25px;
   font-family: 'Zen Kaku Gothic New', sans-serif;
-  margin: 20px;
+  margin: 40px;
 }
 
 .show-bottom{
@@ -518,6 +521,7 @@ footer a{
   font-weight: bold;
   font-family: 'Oswald', sans-serif;
   height: 100px;
+  padding-top: 30px;
   margin-bottom: 30px;
 }
 
