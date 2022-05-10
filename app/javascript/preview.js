@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
   const reviewForm = document.getElementById('new_review');
+  const reviewEdit = document.getElementById('edit_review');
   const previewList = document.getElementById('previews');
-  if (!reviewForm) return null;
+  if (!reviewForm && !reviewEdit) return null;
   const imageLimits = 4;
 
   const buildPreviewImage = (dataIndex, blob) =>{
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
     const deleteButton = document.createElement("div");
     deleteButton.setAttribute("class", "image-delete-button");
-    deleteButton.innerText = "削除";
+    deleteButton.innerText = "DELETE";
     deleteButton.addEventListener("click", () => deleteImage(dataIndex));
     previewWrapper.appendChild(previewImage);
     previewWrapper.appendChild(deleteButton);

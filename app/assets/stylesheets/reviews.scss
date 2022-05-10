@@ -317,17 +317,33 @@ footer a{
 
 /* 以下review/new部分 */
 
+#previews{
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  height: 180px;
+  width: 650px;
+}
+
 .preview-image{
-  width: 200px;
-  height: 200px;
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 5px;
 }
 
 .image-delete-button {
   text-align: center;
   border: solid 1px;
   cursor: pointer;
-  margin-bottom: 5px;
-  width: 20vw;
+  margin: 15px 5px;
+  width: 130px;
+}
+
+.click-upload input{
+  width: 130px;
+  margin: 5px;
 }
 
 /* 以下review/show部分 */
@@ -613,11 +629,89 @@ footer a{
   color: #3584A7;
 }
 
+/* 以下review/edit部分 */
 
+.edit{
+  height: 1750px;
+  width: 100vw;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  padding-bottom: 100px;
+}
 
+.edit-top{
+  display: flex;
+  height: 900px;
+  padding: 50px 0px;
+  margin: 0px 50px;
+}
 
+.review-edit-form{
+  flex-direction: column;
+  min-width: 650px;
+  max-width: 650px;
+}
 
+.review-edit-form li{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  color: lavender;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  list-style: none;
+  margin: 30px 15px;
+}
 
+.review-edit-form textarea{
+  text-align: top;
+  resize: none;
+  height: 44.5px;
+}
+
+.review-edit-bottom{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Oswald', sans-serif;
+  color: lavender;
+  margin-top: 30px;
+}
+
+.review-update{
+  height: 60px;
+  width: 270px;
+  -webkit-transform: skew(-15deg);
+  transform: skew(-15deg);
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#2af598), to(#009efd));
+  background-image: -webkit-linear-gradient(left, #2af598 0%, #009efd 100%);
+  background-image: linear-gradient(90deg, #2af598 0%, #009efd 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, .1);
+  color: lavender;
+  margin: 40px 25px 0px 0px;
+}
+.review-update a{
+  display: flex;
+  justify-content: right;
+}
+
+.review-text textarea{
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow: scroll;
+  height: 500px;
+  max-height: 500px;
+  width: 74vw;
+  font-size: 25px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  margin: 20px 10px;
+}
 
 
 

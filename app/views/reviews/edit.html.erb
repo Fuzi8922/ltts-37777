@@ -1,23 +1,55 @@
-<div class="container">
-  <h4>レビュー編集</h4>
-    <div class = "content">
-    <%= image_tag @review.image  %>
-    <%= form_with(model: @review, local: true) do |f| %>
-      <%= f.text_area :item, placeholder: "Item", class: "item" %>
-      <label>
-      <div class="image-form">
-        Please attach an image
-        <%= f.file_field :image, placeholder: "Image Url", class: "image" %>
-      </div>
-      </label>
-      <%= f.text_area :review_text, placeholder: "Write review", class: "review" %>
-      Price
-      <%= f.collection_select(:price_range_id, PriceRange.all, :id, :name, {}, {class:"select-box", id:"price"}) %>
-      Category
-      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
-      Evaluation
-      <%= f.collection_select(:evaluation_id, Evaluation.all, :id, :name, {}, {class:"select-box", id:"evaluation"}) %>
-      <%= f.submit "編集を確定する", class: "send" %>
-    <% end %>
+<body>
+
+  <%= render "shared/header" %>
+
+  <div class="edit" id = "edit_review">
+    <div class = "show-title">
+      <p> YOUR REVIEW </p>
     </div>
-</div>
+    <div class = "content">
+      <div class = "edit-top">
+        <div class = "review-edit-form">
+          <%= form_with(model: @review, local: true) do |f| %><!-- 49行目にendを記述 -->
+            <ul>
+              <li>製品名：<%= f.text_area :item, placeholder: "Item", class: "edit-item" %></li>
+              <li>価格帯：<%= f.collection_select(:price_range_id, PriceRange.all, :id, :name, {}, {class:"select-box", id:"price"}) %></li>
+              <li>カテゴリ：<%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %></li>
+              <li><%= f.collection_select(:evaluation_id, Evaluation.all, :id, :name, {}, {class:"select-box", id:"evaluation"}) %></li>
+            </ul>
+            <div class = "favorite">
+              <div class = "show-good">
+                <% if user_signed_in? && current_user.good_by?(@review.id) %>
+                  <%= link_to "❤️", review_goods_path(@review), method: :delete %>
+                <% else %>
+                  <%= link_to "♡", review_goods_path(@review), method: :post %>
+                <% end %>
+                <%= @review.goods.count %>
+              </div>
+            </div>
+            <div class = "review-edit-bottom">
+              <label>
+                <div class= "click-upload">
+                  <div id = "previews"></div>
+                  <%= f.file_field :image, name: 'review[images][]', placeholder: "Image Url", class: "image", data: {index: 0} %>
+                  </div>
+              </label>
+              <%= f.submit "REVIEW UPDATE", class: "review-update" %>
+            </div>
+        </div>
+        <div class = "show-images">
+          <% @review.images.each do |image| %>
+            <%= image_tag image %>
+          <% end %>
+        </div>
+      </div>
+      <div class = "show-middle">
+        <div class = review-text>
+          <%= f.text_area :review_text, placeholder: "EDIT REVIEW", class: "edit-review-text" %>
+        </div>
+      </div>
+    <% end %><!-- 12行目のform_withに対するend -->
+  </div>
+
+  <%= render "shared/footer" %>
+
+</body>
