@@ -91,7 +91,7 @@
             <% if comment.user.image.present? %>
               <%= image_tag comment.user.image %>
             <% end %>
-            <%= link_to comment.user.nickname, user_path(@user), class: "comment-user" %>
+            <%= link_to comment.user.nickname, user_path(comment.user), class: "comment-user" %>
             <%= comment.comment_text %>
             <div class = "comment-destroy">
               <% if user_signed_in? && (current_user.id == comment.user_id) %>
