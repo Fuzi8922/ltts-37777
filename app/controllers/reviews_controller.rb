@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
     if @reviews.present?
       @random_review = Review.where("id >= ?", rand(Review.first.id..Review.last.id)).first
     end
+    
     goods = Good.includes(:user)
   end
 
@@ -16,7 +17,6 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    binding.pry
     if @review.save
       redirect_to root_path
     else
@@ -46,6 +46,15 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     redirect_to root_path
+  end
+
+  def search
+    @reviews = Review.search(params[:keyword])
+    @keyword = params[:keyword]
+    if @reviews.present?
+      @random_review = Review.where("id >= ?", rand(Review.first.id..Review.last.id)).first
+    end
+    render "index"
   end
 
   private
