@@ -4,6 +4,10 @@
       <%= link_to "LttS", root_path %>
     </div>
     <div class="header-center">
+      <%= form_with(url: search_reviews_path, local: true, class: "search-form", method: :get) do |f| %>
+        <%= f.text_area :keyword, placeholder: "ENTER KEYWORD" %>
+        <%= f.submit "SEARCH", class: "search-button" %>
+      <% end %>
     </div>
     <div class = "header-right">
       <% if user_signed_in? %>
