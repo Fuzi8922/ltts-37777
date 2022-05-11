@@ -12,7 +12,7 @@
 * 気に入ったレビューをブックマークに追加する機能、またそれを削除する機能
 * ユーザー毎のマイページを表示する機能
 
-[LttSへのリンク](https://ltts-37777.herokuapp.com/)<br>
+[LttSへのリンク](https://ltts-8922.herokuapp.com/)<br>
 [LttSの要件定義へのリンク](https://docs.google.com/spreadsheets/d/1VEqWJnHW_uSMUU0rPPfVGmvaKlCrhAXcqpPUPNdMlyA/edit#gid=982722306)
 
 テスト用アカウント1<br>
@@ -111,8 +111,8 @@ Pass: 222bbb
 ## 6.ローカルでの動作方法
 ***
 以下のコマンドを順に実行<br>
-% git clone https<span>://github.com/Fuzi8922/ltts-37777</span><br>
-% cd ltts-37777<br>
+% git clone https<span>://github.com/Fuzi8922/ltts-8922</span><br>
+% cd ltts-8922<br>
 % bundle install<br>
 % yarn install
 
