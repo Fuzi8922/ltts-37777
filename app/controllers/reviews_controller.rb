@@ -4,7 +4,9 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.includes(:user).order("created_at DESC")
-    @random_review = Review.where("id >= ?", rand(Review.first.id..Review.last.id)).first
+    if @reviews.present?
+      @random_review = Review.where("id >= ?", rand(Review.first.id..Review.last.id)).first
+    end
     goods = Good.includes(:user)
   end
 
@@ -14,6 +16,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    binding.pry
     if @review.save
       redirect_to root_path
     else

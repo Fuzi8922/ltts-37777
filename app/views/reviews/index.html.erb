@@ -21,26 +21,30 @@
           <div class = "random-title">
             FEATURED REVIEW
           </div>
-          <%= link_to review_path(@random_review) do %>
-            <div class="random-images">
-              <% @random_review.images.each do |image| %>
-                <div class="random-image">
-                  <%= image_tag image %>
-                </div>
-              <%end%>
-            </div>
-            <div class = random-review-bottom>
-              <div class = "random-review-preview">
-                <div class = "reviewer">
-                  <%= link_to "レビュアー：#{@random_review.user.nickname}", user_path(@random_review.user) %>
-                </div>
-                <p>商品名：<%= @random_review.item %></p>
-                <p>価格帯：<%= @random_review.price_range.name %></p>
-                <p>評価：<%= @random_review.evaluation.name %></p><br>
-                <p><%= @random_review.review_text %></p>
+          <% if @reviews.present? %>
+            <%= link_to review_path(@random_review) do %>
+              <div class="random-images">
+                <% @random_review.images.each do |image| %>
+                  <div class="random-image">
+                    <%= image_tag image %>
+                  </div>
+                <%end%>
               </div>
-            </div>
-           <% end %>
+              <div class = random-review-bottom>
+                <div class = "random-review-preview">
+                  <div class = "reviewer">
+                    <%= link_to "レビュアー：#{@random_review.user.nickname}", user_path(@random_review.user) %>
+                  </div>
+                  <p>商品名：<%= @random_review.item %></p>
+                  <p>価格帯：<%= @random_review.price_range.name %></p>
+                  <p>評価：<%= @random_review.evaluation.name %></p><br>
+                  <p><%= @random_review.review_text %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p>NO REVIEWS</p>
+          <% end %>
         </div>
       </div>
       <div class = right-content>
@@ -48,32 +52,55 @@
           REVIEWS
         </div>
         <div class = "reviews">
-          <% @reviews.each do |review| %>
-            <div class = "review">
-              <%= link_to review_path(review) do %>
-                <div class="other-images">
-                  <% review.images.each do |image| %>
-                    <div class="other-image">
-                      <%= image_tag image %>
-                    </div>
-                  <% end %>
-                </div>
-                <div class = random-review-bottom>
-                  <div class = "review-preview">
-                    <p>商品名：<%= review.item %></p>
-                    <p>価格帯：<%= review.price_range.name %></p>
-                    <p>評価：<%= review.evaluation.name %></p>
-                  </div>
-                  <div class = "good">
-                    <% if user_signed_in? && current_user.good_by?(review.id) %>
-                      <%= link_to "❤️", review_goods_path(review), method: :delete %>
-                    <% else %>
-                      <%= link_to "♡", review_goods_path(review), method: :post %>
+          <% if @reviews.present? %>
+            <% @reviews.each do |review| %>
+              <div class = "review">
+                <%= link_to review_path(review) do %>
+                  <div class="other-images">
+                    <% review.images.each do |image| %>
+                      <div class="other-image">
+                        <%= image_tag image %>
+                      </div>
                     <% end %>
-                    <%= review.goods.count %>
                   </div>
+                  <div class = random-review-bottom>
+                    <div class = "review-preview">
+                      <p>商品名：<%= review.item %></p>
+                      <p>価格帯：<%= review.price_range.name %></p>
+                      <p>評価：<%= review.evaluation.name %></p>
+                    </div>
+                    <div class = "good">
+                      <% if user_signed_in? && current_user.good_by?(review.id) %>
+                        <%= link_to "❤️", review_goods_path(review), method: :delete %>
+                      <% else %>
+                        <%= link_to "♡", review_goods_path(review), method: :post %>
+                      <% end %>
+                      <%= review.goods.count %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <div class = "review">
+                <div class="other-images">
+                  <%= image_tag "BW_Cancels.jpeg" %>
+                  <%= image_tag "BW_Cancels.jpeg" %>
+                  <%= image_tag "BW_Cancels.jpeg" %>
+                  <%= image_tag "BW_Cancels.jpeg" %>
                 </div>
-              <% end %>
+              
+              <div class = random-review-bottom>
+                <div class = "review-preview">
+                  <p>商品名：テスト商品</p>
+                  <p>価格帯：テスト価格帯</p>
+                  <p>評価：テスト評価</p>
+                </div>
+                <div class = "good">
+                  <%= "❤️  1" %>
+                </div>
+              </div>
+                
             </div>
           <% end %>
         </div>

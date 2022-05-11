@@ -63,7 +63,9 @@
                 </div>
               <% end %>
             <% else %>
-              <%= "投稿されたレビューはまだありません。" %>
+              <div class = "no-reviews">
+                <%= "投稿されたレビューはまだありません。" %>
+              </div>
             <% end %>
           </div>
           <div class = "user-review-bottom">
@@ -99,7 +101,9 @@
                   </div>
                 <% end %>
               <% else %>
-                <%= "ブックマークしたレビューはまだありません。" %>
+                <div class = "no-reviews">
+                  <%= "ブックマークしたレビューはまだありません。" %>
+                </div>
               <% end %>
             </div>
           </div>
