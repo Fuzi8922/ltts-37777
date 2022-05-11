@@ -29,4 +29,11 @@ class Review < ApplicationRecord
     validates :evaluation_id
   end
 
+  def self.search(search)
+    if search != ""
+      Review.where('item LIKE(?)', "%#{search}%")
+    else
+      Review.includes(:user).order("created_at DESC")
+    end
+  end
 end
