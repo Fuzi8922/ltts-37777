@@ -2,14 +2,206 @@ a{
   text-decoration-line: none;
 }
 
-.mypage{
-  height: 100vh;
-  width: 100vw;
-  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+.users-page header{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  margin-bottom: -100px;
 }
+
+.user-page{
+  height: 3200px;
+  width: 100vw;
+  background-image: linear-gradient(to top, #e0c3fc 0%, #8ec5fc 100%);
+  padding: 100px 0px;
+  margin-bottom: 100px;
+  position: relative;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.profile-top{
+  display: flex;
+  border-bottom: solid 1px white;
+  margin: 0px 100px;
+}
+
+.user-image img{
+  max-height: 300px;
+  min-height: 300px;
+  max-width: 300px;
+  min-width: 300px;
+  object-fit:cover;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 50px;
+}
+
+.profile-name{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 40px;
+  font-weight: bold;
+  color: lavender;
+  margin: 50px;
+}
+
+.profile-middle{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 50px 200px;
+}
+
+h3{
+  font-size: 40px;
+  color: white;
+}
+
+.profile-text-area{
+  min-height: 400px;
+  max-height: 600px;
+  min-width: 700px;
+  border-radius: 30px;
+  background: rgba(120, 250, 255, 0.2);
+  padding: 0px 50px;
+  margin: 50px 0px;
+}
+
+.profile-text{
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow: scroll;
+  text-align: left;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  padding: 15px;
+}
+
+.user-review{
+  min-height: 300px;
+  max-height: 700px;
+  margin: 50px 0px;
+}
+
+.user-review-middle{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow: scroll;
+  height: 600px;
+  box-shadow: 0px 30px 30px 0px rgba(3, 3, 3, 0.1);
+  border-radius: 50px;
+}
+
+#users-page .review{
+  height:390px;
+  width:310px;
+  background-image: linear-gradient(45deg, #9890e3 0%, #b1f4cf 100%);
+  margin: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.user-review-middle::after{
+  content:"";
+  width: 360px;
+}
+
+#users-page .other-images{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 310px;
+}
+
+.review img{
+  object-fit:cover;
+  max-height: 155px;
+  min-height: 155px;
+  min-width: 155px;
+  max-width: 155px;
+}
+
+.review-bottom{
+  display: flex;
+  margin-top: 3px;
+}
+
+#users-page .review-preview{
+  flex-direction: column;
+  text-align: left;
+  height: 30px;
+  list-style: none;
+  color: lavender;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  margin-left: 3px;
+}
+
+.review-preview p{
+  max-height: 24px;
+  width: 260px;
+  overflow: hidden;
+}
+
+.good{
+  display: flex;
+  width: calc(310px - 260px);
+  color: lavender;
+  margin: 50px 5px 0px 0px;
+  justify-content: right;
+}
+
+.user-review-bottom{
+  margin: 100px 0px;
+}
+
+.user-edit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 800px;
+  margin: auto;
+  margin-top: 900px;
+  vertical-align: top;
+  text-align: center;
+}
+
+.user-edit a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 800px;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(47, 132, 243);
+  background-image: -webkit-linear-gradient(90deg, #e9defa 0%, #fbfcdb 100%);
+  background-image: linear-gradient(0deg, #e9defa 0%, #fbfcdb 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  border-radius: 50px;
+}
+
+.users-page footer{
+  position: absolute;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, #e0c3fc 0%, #8ec5fc 100%);
+  margin-bottom: -600px;
+}
+
+/* 以下devise/registrations/edit部分 */
 
 .edit-form{
   height: 100vh;
   width: 100vw;
   background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
 }
+

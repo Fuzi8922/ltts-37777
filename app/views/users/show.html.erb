@@ -1,18 +1,121 @@
-<%= render "shared/header" %>
+<body>
 
-<div class = "mypage">
-  <div class="user-profile">
-    <% if @user.image.present? %>
-      <%= image_tag @user.image %>
-    <% else %>
-      <%= "アイコンなし" %>
-    <% end %>
-    <h2>ユーザーネーム：<%= @user.nickname %></h2>
-    紹介文
-    <div class = "profile-text">
-    <%= @user.profile_text %>
+  <div class = "users-page" id = "users-page">
+
+    <%= render "shared/header" %>
+
+    <div class = "user-page">
+      <div class="profile-top">
+        <div class = "user-image">
+          <% if @user.image.present? %>
+            <%= image_tag @user.image %>
+          <% else %>
+            <%= image_tag "icon.png" %>
+          <% end %>
+        </div>
+        <div class = "profile-name">
+          NICKNAME：<%= @user.nickname %>
+        </div>
+      </div>
+      <div class = "profile-middle">
+        <h3>PROFILE</h3>
+        <div class = "profile-text-area">
+          <div class = "profile-text">
+            <% if @user.profile_text.present? %>
+              <%= @user.profile_text %>
+            <% else %>
+              <%= "プロフィール文は未入力です。" %>
+            <% end %>
+          </div>
+        </div>
+        <div class = "user-review">
+          <div class = "user-review-top">
+            <h3>POSTED REVIEW</h3>
+          </div>
+          <div class = "user-review-middle">
+            <% if @user.reviews.present? %>
+              <% @user.reviews.each do |review| %>
+                <div class = "review">
+                  <%= link_to review_path(review) do %>
+                    <div class = "other-images">
+                      <% review.images.each do |image| %>
+                        <div class="other-image">
+                          <%= image_tag image %>
+                        </div>
+                      <% end %>
+                    </div>
+                    <div class = random-review-bottom>
+                      <div class = "review-preview">
+                        <p>商品名：<%= review.item %></p>
+                        <p>価格帯：<%= review.price_range.name %></p>
+                        <p>評価：<%= review.evaluation.name %></p>
+                      </div>
+                      <div class = "good">
+                        <% if user_signed_in? && current_user.good_by?(review.id) %>
+                          <%= link_to "❤️", review_goods_path(review), method: :delete %>
+                        <% else %>
+                          <%= link_to "♡", review_goods_path(review), method: :post %>
+                        <% end %>
+                        <%= review.goods.count %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= "投稿されたレビューはまだありません。" %>
+            <% end %>
+          </div>
+          <div class = "user-review-bottom">
+            <h3>BOOKMARKS</h3>
+              <div class = "user-review-middle">
+              <% if @bookmarks.present? %>
+                <% @bookmarks.each do |review| %>
+                  <div class = "review">
+                    <%= link_to review_path(review) do %>
+                      <div class = "other-images">
+                        <% review.images.each do |image| %>
+                          <div class="other-image">
+                            <%= image_tag image %>
+                          </div>
+                        <% end %>
+                      </div>
+                      <div class = random-review-bottom>
+                        <div class = "review-preview">
+                          <p>商品名：<%= review.item %></p>
+                          <p>価格帯：<%= review.price_range.name %></p>
+                          <p>評価：<%= review.evaluation.name %></p>
+                        </div>
+                        <div class = "good">
+                          <% if user_signed_in? && current_user.good_by?(review.id) %>
+                            <%= link_to "❤️", review_goods_path(review), method: :delete %>
+                          <% else %>
+                            <%= link_to "♡", review_goods_path(review), method: :post %>
+                          <% end %>
+                          <%= review.goods.count %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% else %>
+                <%= "ブックマークしたレビューはまだありません。" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class = "user-edit">
+        <% if user_signed_in? && (current_user.id == @user.id) %>
+          <%= link_to "EDIT USER", edit_user_registration_path %>
+        <% end %>
+      </div>
+    
+    
+      <%= render "shared/footer" %>
   </div>
-  <% if user_signed_in? && (current_user.id == @user.id) %>
-    <%= link_to "編集する", edit_user_registration_path %>
-  <% end %>
-</div>
+
+  
+
+</body>
