@@ -1,23 +1,40 @@
-<div class="container">
-  <h4>レビュー投稿</h4>
-    <div class = "content">
-    <%= form_with(model: @review, local: true, id: "new_review") do |f| %>
-      <%= f.text_area :item, placeholder: "Item", class: "item" %>
-      <div class="image-form">
-        Please attach an image
-        <div id="previews"></div>
-        <div class="click-upload">
-          <%= f.file_field :images, name: 'review[images][]', class: "image", data: {index: 0} %>
+<body>
+
+  <%= render "shared/header" %>
+   
+  <div class = "review-new">
+    <div class = "new-title">
+      <h4>NEW REVIEW</h4>
+    </div>
+    <div class = "new-review-form">
+      <div class = "new-review-top">
+        <%= form_with(model: @review, local: true, id: "new_review") do |f| %>
+        <ul>
+          <li>製品名　：<%= f.text_area :item, placeholder: "Item", class: "item" %></li>
+          <li>価格帯　：<%= f.collection_select(:price_range_id, PriceRange.all, :id, :name, {}, {class:"select-box", id:"price"}) %></li>
+          <li>カテゴリ：<%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %></li>
+          <li>評価　　：  <%= f.collection_select(:evaluation_id, Evaluation.all, :id, :name, {}, {class:"select-box", id:"evaluation"}) %></li>
+        </ul>
+        <div class="image-form">
+          添付画像（4枚まで）
+          <div id="previews"></div>
+          <div class="click-upload">
+            <%= f.file_field :images, name: 'review[images][]', class: "image", data: {index: 0} %>
+          </div>
         </div>
       </div>
-      <%= f.text_area :review_text, placeholder: "Write review", class: "review" %>
-      Price
-      <%= f.collection_select(:price_range_id, PriceRange.all, :id, :name, {}, {class:"select-box", id:"price"}) %>
-      Category
-      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
-      Evaluation
-      <%= f.collection_select(:evaluation_id, Evaluation.all, :id, :name, {}, {class:"select-box", id:"evaluation"}) %>
-      <%= f.submit "Post review", class: "send" %>
-    <% end %>
+      <div class = "new-review-bottom">
+        <div class = review-text>
+          <%= f.text_area :review_text, placeholder: "REVIEW TEXT", class: "review" %>
+        </div>
+      </div>
+      <div class = "post-review">
+        <%= f.submit "POST REVIEW", class: "send" %>
+      </div>
     </div>
-</div>
+  </div>
+        <% end %> <!-- 12行目のform_withに対応 -->
+
+    <%= render "shared/footer" %>
+
+</body>
