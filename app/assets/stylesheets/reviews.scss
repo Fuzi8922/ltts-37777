@@ -350,6 +350,78 @@ footer a{
 
 /* 以下review/new部分 */
 
+.review-new{
+  height: 1950px;
+  width: 100vw;
+  background-image: linear-gradient(to bottom, #9890e3 0%, #30cfd0 100%);
+}
+
+.new-title{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  height: 200px;
+  width: 100vw
+}
+
+h4{
+  margin: 50px 300px 0px;
+}
+
+.new-review-form{
+  display: flex;
+  flex-direction: column;
+  height: 1200px;
+  margin: 0px 50px;
+}
+
+.new-review-top{
+  margin: 25px 15vw;
+}
+
+.new-review-form li{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  list-style: none;
+  margin: 30px 15px;
+}
+
+.new-review-form textarea{
+  text-align: top;
+  height: 44.5px;
+  width: 750px;
+  border-radius: 15px;
+  resize: none;
+}
+
+.new-review-form select{
+  width: 300px;
+  border-radius: 15px;
+}
+
+.image-form{
+  width: 1300px;
+  color: white;
+  font-size: 20px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.new-review-form #previews{
+  display: flex;
+  justify-content: left;
+  height: 180px;
+  width: 1300px;
+}
+
 #previews{
   display: flex;
   justify-content: left;
@@ -361,22 +433,53 @@ footer a{
 .preview-image{
   width: 130px;
   height: 130px;
+}
+
+.new-review-form img{
+  width: 180px;
+  height: 180px;
   border-radius: 10px;
   object-fit: cover;
-  margin: 5px;
+  margin: 50px 30px 70px;
 }
 
 .image-delete-button {
   text-align: center;
+  width: 200px;
+  color: white;
+  font-size: 15px;
   border: solid 1px;
   cursor: pointer;
-  margin: 15px 5px;
-  width: 130px;
+  margin: 30px;
 }
 
-.click-upload input{
-  width: 130px;
-  margin: 5px;
+.new-review-form input{
+  width: 200px;
+  font-size: 15px;
+  margin: 70px 30px 0px;
+}
+
+.new-review-bottom{
+  display: flex;
+  align-items: center;
+  font-family: 'Oswald', sans-serif;
+  margin: 50px auto;
+}
+
+.post-review{
+  height: 70px;
+  margin: 0px auto;
+}
+
+.post-review input{
+  height: 70px;
+  font-weight: bold;
+  color: cornflowerblue;
+  background-image: -webkit-linear-gradient(90deg, #e9defa 0%, #fbfcdb 100%);
+  background-image: linear-gradient(0deg, #e9defa 0%, #fbfcdb 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  border-radius: 20px;
 }
 
 /* 以下review/show部分 */
@@ -697,6 +800,29 @@ footer a{
   margin: 30px 15px;
 }
 
+.review-edit-form{
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  height: 180px;
+  width: 1100px;
+}
+
+.review-edit-bottom img{
+  width: 130px;
+  height: 130px;
+  margin: 5px;
+}
+
+.edit{
+  .image-delete-button{
+    text-align: center;
+    border: solid 1px;
+    cursor: pointer;
+    margin: 5px;
+    width: 130px;
+}}
+
 .review-edit-form textarea{
   text-align: top;
   resize: none;
@@ -724,7 +850,7 @@ footer a{
   background-image: linear-gradient(90deg, #2af598 0%, #009efd 100%);
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
   box-shadow: 0px 5px 10px rgba(0, 0, 0, .1);
-  color: lavender;
+  color: white;
   margin: 40px 25px 0px 0px;
 }
 .review-update a{
