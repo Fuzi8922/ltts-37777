@@ -10,7 +10,7 @@
       <div class = "new-review-top">
         <%= form_with(model: @review, local: true, id: "new_review") do |f| %>
         <ul>
-          <li>製品名　：<%= f.text_area :item, placeholder: "Item", class: "item" %></li>
+          <li>製品名　：<%= f.text_area :item, placeholder: "最大50文字", class: "item" %></li>
           <li>価格帯　：<%= f.collection_select(:price_range_id, PriceRange.all, :id, :name, {}, {class:"select-box", id:"price"}) %></li>
           <li>カテゴリ：<%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %></li>
           <li>評価　　：  <%= f.collection_select(:evaluation_id, Evaluation.all, :id, :name, {}, {class:"select-box", id:"evaluation"}) %></li>
@@ -25,7 +25,7 @@
       </div>
       <div class = "new-review-bottom">
         <div class = review-text>
-          <%= f.text_area :review_text, placeholder: "REVIEW TEXT", class: "review" %>
+          <%= f.text_area :review_text, placeholder: "レビューテキスト（10文字以上1000文字以内）", class: "review" %>
         </div>
       </div>
       <div class = "post-review">

@@ -71,13 +71,32 @@ header {
 }
 
 .header-right{
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  height: 100px;
   width: 25vw;
 }
 
-.new-review, .logout, .login, .user-registration{
-  padding:25px 0px;
-  margin-right:40px;
+.new-review, .logout, .login, .user-registration, .mypage{
+  min-width: 150px;
+  max-width: 150px;
 }
+
+.new-review a, .logout a, .login a, .user-registration a, .mypage a{
+  min-width: 150px;
+  max-width: 150px;
+  padding: 31px 30px;
+}
+
+.new-review a:hover, .logout a:hover, .login a:hover, .user-registration a:hover, .mypage a:hover{
+  color: white;
+  background-color: #0974b3;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all  0.5s ease;
+  }
 
 .wrapper{
   display:flex;
@@ -90,6 +109,7 @@ header {
 }
 
 h1{
+  display: none;
   font-size: 130px;
   font-family: 'Grape Nuts', cursive;
   background: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
@@ -328,10 +348,23 @@ footer a{
 .genre{
   width: 33vw;
   margin-left: 200px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 2s ease;
 }
 
-.about, .manufacturer{
+.about{
   width: 33vw;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 3s ease;
+}
+
+.manufacturer{
+  width: 33vw;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 4s ease;
 }
 
 .about p{
@@ -345,6 +378,7 @@ footer a{
 }
 
 .item{
+  font-size: 24px;
   margin: 10px 0px;
 }
 
@@ -768,9 +802,13 @@ h4{
 /* 以下review/edit部分 */
 
 .edit{
-  height: 1750px;
+  height: 1850px;
   width: 100vw;
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  padding-bottom: 100px;
+}
+
+.edit-content{
   padding-bottom: 100px;
 }
 
@@ -872,7 +910,61 @@ h4{
   margin: 20px 10px;
 }
 
+/* 以下javascriptの記述 */
+.fadein {
+  opacity : 0;
+  transform : translate(0, 50px);
+  transition : all 800ms;
+}
 
+.fadein.scrollin {
+  opacity : 1;
+  transform : translate(0, 0);
+}
+
+/* モーダルウィンドウに関する記述 */
+.no_scroll {
+  overflow: hidden;
+}
+
+/* モーダルウィンドウ */
+.modal-window {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 80vh;
+  background-color: #dfdddd;
+  border-radius: 25px;
+  z-index: 11;
+  padding: 10px;
+}
+/* オーバーレイ */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+/* 閉じるボタン */
+.button-close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  padding: 1em;
+  background-color: #c96931;
+  color: #eaeaea;
+  border-radius: 20rem;
+  cursor: pointer;
+}
 
 
 

@@ -16,8 +16,8 @@ class UsersController < ApplicationController
 
   def show
     @reviews = Review.includes(:@user).order(created_at: :desc)
-    bookmarks = Bookmark.where(user_id: current_user.id)
-    @bookmarks = Review.find(bookmarks.ids)
+    bookmarks = Bookmark.where(user_id: @user.id).pluck(:review_id)
+    @bookmarks = Review.find(bookmarks)
   end
 
   private
