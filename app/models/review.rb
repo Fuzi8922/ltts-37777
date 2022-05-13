@@ -1,8 +1,8 @@
 class Review < ApplicationRecord
 
-  has_many :comments
-  has_many :goods
-  has_many :bookmarks
+  has_many :comments, dependent: :destroy
+  has_many :goods, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   belongs_to :user
   has_many_attached :images
 

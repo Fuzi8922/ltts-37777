@@ -1,10 +1,10 @@
 class User < ApplicationRecord
 
   has_one_attached :image
-  has_many :reviews
-  has_many :comments
-  has_many :goods
-  has_many :bookmarks
+  has_many :reviews, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :goods, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
