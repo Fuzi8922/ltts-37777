@@ -204,9 +204,49 @@ h3{
 
 /* 以下devise/registrations/edit部分 */
 
-.edit-form{
-  height: 100vh;
+.edit-user-page{
+  height: 2000px;
   width: 100vw;
-  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+  background-image: linear-gradient(to top, #e0c3fc 0%, #8ec5fc 100%);
+  padding: 100px 0px;
+  margin-bottom: 100px;
+  position: relative;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
 }
 
+.profile-text textarea{
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow: scroll;
+  height: 500px;
+  max-height: 500px;
+  width: 74vw;
+  resize: none;
+  font-size: 25px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  margin: 20px 10px;
+}
+
+.edit-update{
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-update a, .edit-update input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 600px;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(47, 132, 243);
+  background-image: -webkit-linear-gradient(90deg, #e9defa 0%, #fbfcdb 100%);
+  background-image: linear-gradient(0deg, #e9defa 0%, #fbfcdb 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  border-radius: 50px;
+  margin: 15px auto;
+}
