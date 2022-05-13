@@ -1,15 +1,15 @@
 <body>
   <%= render "shared/header" %>
-  <div class = "wrapper">
+  <div class = "wrapper" id = "top-page">
     <h1>Hello, my sound's mate.</h1>
   </div>
   <div class = "main-contents">
-    <div class = "contents-title">
+    <div class = "contents-title fadein">
       CONTENTS
     </div>
     <div class = top-content>
       <div class = "left-content">
-        <div class = "left-title">
+        <div class = "left-title fadein">
           NEWS
         </div>
         <div class = "timeline">
@@ -48,10 +48,10 @@
         </div>
       </div>
       <div class = right-content>
-        <div class = "right-title">
+        <div class = "right-title fadein">
           REVIEWS
         </div>
-        <div class = "reviews">
+        <div class = "reviews fadein">
           <% if @reviews.present? %>
             <% @reviews.each do |review| %>
               <div class = "review">

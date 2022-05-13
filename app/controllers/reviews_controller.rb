@@ -7,7 +7,9 @@ class ReviewsController < ApplicationController
     if @reviews.present?
       @random_review = Review.where("id >= ?", rand(Review.first.id..Review.last.id)).first
     end
-    
+    unless user_signed_in?
+      return nil
+    end
     goods = Good.includes(:user)
   end
 
