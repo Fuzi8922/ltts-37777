@@ -3,78 +3,64 @@
   <%= render "shared/header" %>
   
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <div class = "users-page" id = "users-page">
-    
-    <div class = "edit-user-page">
-      <div class="profile-top">
-        <%= render "devise/shared/error_messages", resource: resource %>
-        <div class = "user-image">
-          <%= f.label :アイコン %><br />
-          <% if @user.image.present? %>
-            <%= image_tag @user.image %>
-          <% else %>
-            <%= image_tag "icon.png" %>
+    <div class = "users-page" id = "users-page">
+      <div class = "edit-user-page">
+        <div class="edit-profile-top">
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class = "user-image">
+            <div class = "icon-title">
+              アイコンを設定できます
+            </div>
+            <% if @user.image.present? %>
+              <%= image_tag @user.image %>
+            <% else %>
+              <%= image_tag "icon.png" %>
+            <% end %>
+            <%= f.file_field :image, class: "image" %>
+          </div>
+          <div class = "profile-name">
+            <%= f.label :NICKNAME %><br />
+            <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+          </div>
+        </div>
+        <div class = "profile-middle">
+          <%= f.label :紹介文 %><br />
+          <div class = "profile-text-area">
+            <div class = "profile-text">
+              <%= f.text_area :profile_text, placeholder: "自己紹介文を入力できます" %>
+            </div>
+          </div>
+          <div class="field">
+            <%= f.label :メールアドレス %><br />
+            <%= f.email_field :email, autocomplete: "email" %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
-          <%= f.file_field :image, class: "image" %>
-        </div>
-        
-        <div class = "profile-name">
-          <%= f.label :NICKNAME %><br />
-          <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
-        </div>
-      </div>
-      <div class = "profile-middle">
-        <h3><%= f.label :紹介文 %><br /></h3>
-        <div class = "profile-text-area">
-          <div class = "profile-text">
-            <%= f.text_area :profile_text %>
+
+          <div class="field">
+            <%= f.label :パスワード %>(6文字以上必須)<br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :パスワード（確認用） %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+          <div class="field">
+            <%= f.label :現在のパスワード %><br />
+            <%= f.password_field :current_password, autocomplete: "current-password" %>
           </div>
           
-          
         </div>
 
-        <div class="field">
-          <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email, autocomplete: "email" %>
+        <div class="edit-update">
+          <%= f.submit "PROFILE UPDATE" %>
+          <%= link_to "BACK", :back %>
         </div>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-
-        <div class="field">
-          <%= f.label :パスワード %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-          <% if @minimum_password_length %>
-            <br />
-            <%= @minimum_password_length %>文字以上必須
-          <% end %>
-        </div>
-
-        <div class="field">
-          <%= f.label :パスワード（確認用） %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :現在のパスワード %><br />
-          <%= f.password_field :current_password, autocomplete: "current-password" %>
-        </div>
-        
-      </div>
-
-      <div class="edit-update">
-        <%= f.submit "PROFILE UPDATE" %>
-        <%= link_to "BACK", :back %>
-      </div>
-
-     
-    
-     <% end %>
-     
       <%= render "shared/footer" %>
-  </div>
-
-  
+    </div>
+  <% end %>
 
 </body>
