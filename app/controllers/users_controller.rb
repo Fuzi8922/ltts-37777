@@ -3,17 +3,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
   before_action :user_identify, only: [:edit,  :update, :show]
 
-  def edit
-  end
-
-  def update
-    if current_user.update(user_params)
-      redirect_back(fallback_location: root_path)
-    else
-      render :edit
-    end
-  end
-
   def show
     @reviews = Review.includes(:@user).order(created_at: :desc)
     bookmarks = Bookmark.where(user_id: @user.id).pluck(:review_id)

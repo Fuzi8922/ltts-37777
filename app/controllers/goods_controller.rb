@@ -1,8 +1,12 @@
 class GoodsController < ApplicationController
 
   def create
-    @good = current_user.goods.create(review_id: params[:review_id])
-    redirect_back(fallback_location: root_path)
+    if user_signed_in?
+      @good = current_user.goods.create(review_id: params[:review_id])
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
