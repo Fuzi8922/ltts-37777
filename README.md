@@ -13,7 +13,7 @@
 * ユーザー毎のマイページを表示する機能
 
 [LttSへのリンク](https://ltts-8922.herokuapp.com/)<br>
-[LttSの要件定義へのリンク](https://docs.google.com/spreadsheets/d/1VEqWJnHW_uSMUU0rPPfVGmvaKlCrhAXcqpPUPNdMlyA/edit#gid=982722306)
+[LttSの要件定義へのリンク](https://docs.google.com/spreadsheets/d/1kJxqaOSbNfR5HjCfHeNNLHC61-jA-RpKVq3RGG4QlLg/edit#gid=982722306)
 
 テスト用アカウント1<br>
 Email: test<span>@a.com</span><br>
@@ -24,9 +24,13 @@ Email: test<span>@b.com</span><br>
 Pass: 222bbb
 
 ### 今後実装予定の機能
-* カテゴリ別および任意の文字列による検索機能
+* カテゴリ別検索機能
 * ログイン画面、レビュー投稿画面をモーダルウィンドウで表示する機能
 * グッド評価機能、ブックマーク機能に非同期通信を適用
+* ポートフォリオサイト、クレジット等の追加
+
+#### 備考
+* AWSの連携準備中のため画像が表示されない可能性有り。
 
 ## 2.アプリケーションを作成した背景
 ***
