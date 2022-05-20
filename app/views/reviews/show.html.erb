@@ -33,12 +33,7 @@
             <% end %>
           </div>
           <div class = "show-good">
-            <% if user_signed_in? && current_user.good_by?(@review.id) %>
-              <%= link_to "❤️", review_goods_path(@review), method: :delete %>
-            <% else %>
-              <%= link_to "♡", review_goods_path(@review), method: :post %>
-            <% end %>
-            <%= @review.goods.count %>
+            <%= render "goods/good_show", review: @review %>
           </div>
         </div>
         <div class = "show-edit">
