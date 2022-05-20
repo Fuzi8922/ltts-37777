@@ -1,0 +1,8 @@
+<div id = "good_button_<%= review.id %>">
+  <% if user_signed_in? && current_user.good_by?(review.id) %>
+    <%= link_to "❤️", review_goods_path(review), method: :delete, remote: true %>
+  <% else %>
+    <%= link_to "♡", review_goods_path(review), method: :post, remote: true %>
+  <% end %>
+  <%= review.goods.count %>
+</div>
