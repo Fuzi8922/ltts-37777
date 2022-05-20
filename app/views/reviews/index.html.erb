@@ -69,13 +69,8 @@
                       <p>価格帯：<%= review.price_range.name %></p>
                       <p>評価：<%= review.evaluation.name %></p>
                     </div>
-                    <div class = "good">
-                      <% if user_signed_in? && current_user.good_by?(review.id) %>
-                        <%= link_to "❤️", review_goods_path(review), method: :delete %>
-                      <% else %>
-                        <%= link_to "♡", review_goods_path(review), method: :post %>
-                      <% end %>
-                      <%= review.goods.count %>
+                    <div class = "good" >
+                      <%= render "goods/good", review: review %>
                     </div>
                   </div>
                 <% end %>
