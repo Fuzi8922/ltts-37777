@@ -1,4 +1,4 @@
-<h2>SIGN UP</h2>
+<h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -7,12 +7,12 @@
     <%= f.label :Nickname %><br />
     <%= f.text_field :nickname %>
   </div>
-  
+  ニックネーム
   <div class="field">
     <%= f.label :Email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
+メールアドレス
   <div class="field">
     <%= f.label :Password %>
     <% if @minimum_password_length %>
@@ -20,15 +20,16 @@
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
-
+メールアドレス（確認用）
   <div class="field">
     <%= f.label :Password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+パスワード
   <div class='field'>
     <%= f.label :Birthday %>
   </div>
+  生年月日
   <div class='input-birth-wrap'>
     <%= raw sprintf(
       f.date_select(
@@ -40,11 +41,11 @@
         start_year: 1930,
         end_year: (Time.now.year - 5),
         date_separator: '%s'),
-      "<p> Year </p>", "<p> Month </p>") + "<p> Day </p>" %>
+      "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "SIGN UP" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
 
